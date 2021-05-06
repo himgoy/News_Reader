@@ -1,10 +1,12 @@
-# api key for NEWS API : b72eb5a62f594cfeb9447ad5d81ead6c
 import requests
 import json
 import time
 from win32com.client import Dispatch
 import inflect
+# Get your API Key from this Website
+# https://newsapi.ai/
 
+NewsApiKey = input("Enter your API Key Here : ")
 
 def speak(string):
     if string == None:
@@ -57,7 +59,7 @@ def input_using_number():
 
 def news_bot():
     p = inflect.engine()  # For First, Second, Third ...
-    url = "http://newsapi.org/v2/top-headlines?country=" + short_form + "&apiKey=b72eb5a62f594cfeb9447ad5d81ead6c"
+    url = "http://newsapi.org/v2/top-headlines?country=" + short_form + "&apiKey=" + NewsApiKey
     news = requests.get(url).text
     news_dict = json.loads(news)
     print(f"URL = {url}")
